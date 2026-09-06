@@ -1,1 +1,1 @@
-# MTSUOldCode
+This is old code from MTSU. All over the place and disorganized

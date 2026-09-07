@@ -1,0 +1,15 @@
+Jaylon Atkins
+CLA 6
+ALU_log
+
+A	B	S2	S1	S0	ALU_out
+7e117a1e	c0cac01a	0	0	0	bd46ba04
+7e117a1e	c0cac01a	0	0	1	3edc3a38
+7e117a1e	c0cac01a	0	1	0	3edc3a39
+7e117a1e	c0cac01a	0	1	1	c0cac01a
+7e117a1e	c0cac01a	0	1	0	3edc3a39
+7e117a1e	c0cac01a	1	0	0	4000401a
+7e117a1e	c0cac01a	1	0	1	fedbfa1e
+7e117a1e	c0cac01a	1	0	0	4000401a
+7e117a1e	c0cac01a	1	1	0	3f08bd0f
+7e117a1e	c0cac01a	1	1	1	81ee85e1

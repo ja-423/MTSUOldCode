@@ -1,0 +1,19 @@
+Jaylon Atkins
+Closed Lab 5
+1-Bit Register
+
+Data	Load	Clear	Clock	Data_out
+0	0	0	0	0
+0	0	0	1	0
+
+1	0	0	0	0
+1	0	0	1	0
+
+1	1	0	0	0
+1	1	0	1	1
+
+0	1	0	0	1
+0	1	0	1	0
+
+1	1	1	0	0
+1	1	1	1	0

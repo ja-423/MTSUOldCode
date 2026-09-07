@@ -1,0 +1,17 @@
+;; Jaylon Atkins
+;; OLA 8
+;; ram1.txt
+
+JMP _sub_program
+
+Var1: A
+Var2: 8
+
+_sub_program:
+	LDAC Var2 ;; loads 8 onto the ACC from memory
+	MVAC ;; moves ACC to R
+	CLAC ;; Clears the ACC
+	LDAC Var1 ;; Load 10 in hexadecimal onto the ACC from memory
+	SUB ;; Subtracts ACC and R
+	OUT ;; Displays ACC
+	HALT ;; Stops program

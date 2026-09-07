@@ -1,0 +1,92 @@
+;; Jaylon Atkins
+;; OLA 8
+;; Ram_3.txt (Product of three numbers)
+
+JMP start
+
+;; numbers that will be used throughout the program
+
+num_1: 3
+num_2: 4
+num_3: 5
+
+;; variables for storing the products of the addition loops
+
+first_product: 0
+second_product: 0
+
+start:
+	LDAC num_1	;; Loads num_1 from memory and moves it R
+	MVAC	
+	
+	CLAC		;; Clears the ACC and "OR" with R
+	OR
+	JMPZ display	;; Jumps to display if z is 1
+
+	LDAC num_2	;; The same as above with num_2
+	MVAC
+
+	CLAC		
+	OR
+	JMPZ display	
+	
+	LDAC num_3	;; Same process as the first and second varibles with num_3
+	MVAC
+	CLAC
+	OR
+	JMPZ display
+		
+num1xnum2:		;; Multiplcation of the first and second values
+	LDAC num_1	;; Loads num_1 and stores it into the first_product variable
+
+	MVAC
+	STAC first_product
+
+	LDAC num_2	;; Loads num_2, negates it and incremetents
+	NOT
+	INC
+	STAC num_2	;; Restores the negation in the original variable
+	
+loop:
+	INC		;; Increments (num_2) the ACC and jumps to the final multiplcation if z is 1
+	JMPZ num1&2xnum3
+
+	STAC num_2	;; Stores the inc to num_2
+	LDAC first_product	;; Loads the first product and loops through until num_2 is zero
+
+	ADD
+	STAC first_product
+	LDAC num_2
+	JMP loop
+
+num1&2xnum3:
+	LDAC first_product	;; The first product is loaded and displayed
+	OUTR
+
+	STAC second_product	;; Stores the second product, loads it, and moves it to R
+ 
+	LDAC second_product
+	MVAC
+	LDAC num_3		;; num_3 is loaded, negated and incremented which is restored back to itself
+	NOT
+	INC
+	STAC num_3
+
+loop2:
+	INC			;; Second loop for multiplication follows the same prinicple as the first
+	JMPZ done
+	STAC num_3
+	LDAC first_product	;; The loop is ended when z is 1
+	ADD
+	STAC first_product
+	LDAC num_3
+	JUMP loop2
+
+display:
+    STAC first_product		;; Loads the final product for the display
+
+done:				;; Stops the program and outputs display
+	LDAC first_product
+	OUT
+	HALT
+    

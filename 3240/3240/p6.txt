@@ -1,0 +1,68 @@
+
+                        Computer Systems
+                            Project 6
+                           Spring 2021
+
+
+turnin id:  cs_p6
+
+
+Write a C/C++ program that performs the tasks described below.
+
+If there is just 1 command-line argument and it is
+    -hw
+you should simply print
+    hello world
+and then exit(0).
+
+
+Your process should be able to dynamically load functions from
+    /nfshome/rbutler/public/courses/cs/p6testfiles/libp6.so
+
+The program should dynamically load a function whose name is the first
+command-line argument to your program.  The program should invoke
+the function with two arguments.  The arguments will be derived from
+the second and third command-line arguments passed to your program.
+You may assume that the invoked function always requires two arguments:
+a null-terminated char vector argument and an integer.  So, the last arg
+will have to be converted from chars to int.  The function returns void.
+
+For this invocation:
+    ./p6 somefunc howdy 1234
+your program would dynamically open libp6.so by using its fullpathname
+on system64.  Then the program would load the somefunc function and
+invoke it with howdy and 1234 as a char vector and integer, respectively.
+somefunc will print some message related to the arguments.
+
+****
+Note that dynamic loading is required.  It is possible to tell if static
+linking or dynamic linking is used via the file/nm/ldd commands.
+****
+
+****
+Note that the contents of libp6.so may be changed prior to grading, and
+may even be re-built with new functions which conform to the interface.
+****
+
+
+TURNIN info:
+    You should submit a tar file of a directory which contains all of the
+    required files (makefile, C source files, header files, etc).
+    Sample tar command to create a tar file from a dir named p6dir:
+	tar cvf p6.tar ./p6dir  ## do *NOT* use full pathname of the dir
+    After un-tarring your project, I will cd to the dir containing
+    it and type:
+        rm -rf p6
+        rm -f *.o
+        rm -f libp6.so  ######## NEW just to be safe :-)  ###### <--------
+        make
+    It should build an executable named p6 as described above.
+
+    ********
+    The project must:
+        - be a tar file
+        - un-tar into the correct set of files (above)
+        - build an executable named p6
+        - run correctly with the -hw command-line arg, printing: hello world
+    else it will NOT be graded further.
+    ********

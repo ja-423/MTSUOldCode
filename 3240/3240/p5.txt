@@ -1,0 +1,64 @@
+
+                             Computer Systems
+                                 Project 5
+                                Spring 2021
+
+
+turnin code:  cs_p5
+
+
+Write a C/C++ program that performs the tasks described below.
+
+If there is just 1 command-line argument and it is
+    -hw
+you should simply print
+    hello world
+and then exit(0).
+
+Otherwise the program should provide a simple client that can communicate
+with a server described below.
+
+The client should use the first and second command-line arguments as host
+and port at which to reach the server.  Each subsequent command-line arg
+should be treated as a single message to be sent to the server.  Append a
+newline '\n' character to be the last character of each message sent.
+Send the message, receive the reply, sleep for 2 seconds, and then send
+the next message.  The server will reply to each of your messages with
+a short message, which you should print.  You may assume no reply will
+be longer than 32 bytes.
+
+The server may also produce some printed output.
+
+The server may not always use the same port.
+
+Here are some sample server runs, using nc.traditional:
+
+    nc.traditional -e /bin/cat -k -v -l -p 5000
+    nc.traditional -c "/bin/cat"  -k -v -l -p 5000
+    nc.traditional -c "/bin/cat -b"  -k -v -l -p 5000
+    nc.traditional -v -l -p 5000 -c 'while true; do read i && echo "[echo] $i" ; done'
+
+In a separate window, your client will be run something like this:
+
+    ./p5 system64 5000 foo bar harry potter   ## 5000 is current server's port
+
+You can test ONLY sending to the server and have it just print out what it
+receives, by running it this way:
+
+    nc.traditional  -k -v -l -p 5000
+
+NOTE that in this mode, the server will NOT send back replies.
+
+--------
+
+TURNIN info:
+    You should submit a tar file of a directory which contains all of the
+    required files (makefile, C source files, header files, etc).
+    Sample tar command to create a tar file from a dir:
+        tar cvf p5.tar ./p5dir  ## do *NOT* use full pathname of the dir
+    After un-tarring the project, I will cd to the dir containing it and type:
+        rm -rf p5
+        rm -f *.o
+        make
+    It should build an executable named p5.
+    It *must* execute correctly for -hw for the project to be graded further.

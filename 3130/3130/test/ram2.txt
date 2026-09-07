@@ -1,0 +1,65 @@
+;; Jaylon Atkins
+;; OLA 8
+;; ram2.txt
+
+;; This program performs muliple operations with A9, 2B, AF, D1
+
+JMP Mulitple
+
+;; All values in hexdecimal
+Var1: A9    	;; 169
+Var2: 2B	;; 43
+Var3: AF	;; 175
+Var4: D1	;; 209
+
+Mulitple:
+
+	LDAC Var1 ;; Loads A9 to the ACC
+	MVAC	  ;; Moves A9 to R
+	LDAC Var2 ;; Loads 2B to the ACC
+	ADD	  ;; Adds ACC and R
+	OUT       ;; Displays the value of the ACC
+	
+	CLAC	  ;; Clears ACC
+	
+	LDAC Var2 ;; Loads 2B to the ACC
+	MVAC	  ;; Moves 2B to R
+	LDAC Var1 ;; Loads A9 to the ACC
+	SUB		  ;; Subtracts R from the ACC
+	OUT		  ;; Displays the value of the ACC
+	
+	CLAC	  ;; Clears ACC
+	
+	LDAC Var1 ;; Loads A9 to the ACC
+	MVAC	  ;; Moves A9 to R
+	LDAC Var2 ;; Loads 2B to the ACC
+	AND		  ;; Ands the ACC and R
+	OUT		  ;; Displays the value of the ACC
+	
+	CLAC	  ;; Clears ACC
+	
+	LDAC Var1
+	MVAC
+	LDAC Var2
+	OR
+	OUT
+	
+	CLAC
+
+	LDAC Var1
+	ASHR
+	OUT
+	
+	CLAC
+	
+	LDAC Var3 ;; Loads AF to the ACC
+	INC		  ;; Increments AF 
+	OUT		  ;; Dos[;aus tje value of the ACC
+	
+	CLAC 	  ;; Clears ACC
+	
+	LDAC Var4 ;; Loads D1 to the ACC
+	NOT		  ;; Negates (not) the ACC
+	OUT		  ;; Displays the value of the ACC
+	
+	HALT	  ;; Stops the execution

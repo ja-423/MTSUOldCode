@@ -1,0 +1,8 @@
+Jaylon Atkins
+CLA 6
+Small ALU_log
+A	B	S1	S0	Logic_out
+abcd1234	06ae18ad	0	0	028c1024
+abcd1234	06ae18ad	0	1	afef1abd
+abcd1234	06ae18ad	1	0	d5e6891a
+abcd1234	06ae18ad	1	1	5432edcb

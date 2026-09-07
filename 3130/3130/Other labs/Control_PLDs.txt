@@ -1,0 +1,25 @@
+Jaylon Atkins
+Control_PLDs.txt
+PC_BUS = t0 + t2
+AR_LD = (t0 + t2 + t4(d1 + d2)) !clock
+PC_LD = (!z d6) !clock + t4(z d6 + d5) !clock
+PC_Inc = t1 !clock + t3(!z d6 + d2 + d1) !clock
+DR_LD = t1 !clock + t3 (z d6 + d5 + d2 + d1) + t5 (d1 + d2) !clock
+DR_BUS = t4(z d6 + d5 + d2 + d1) + t6(d2 + d1)
+
+R_LD = t3 d3 !clock
+R_BUS = t3 (d4 + d8 +d9 + d12 + d13)
+S_LD = t3 d0 !clock
+ACC_CLR = t3 d11
+ACC_LD = !clock t6 d1 +t3(d15 + d14 + d13 + d12 + d10 + d9 + d8 +d4) !clock
+ACC_BUS = t5 d2 + t3 (d7 + d3) 
+ALU_SEL 
+	S2 = d15 + d14 + d13 + d12
+`	S1 = d15 + d14 + d10 + d4 + d1
+	S0 = d15 + d13 + d9 + d4 + d1
+Z_LD = 1
+OUTR_LD = t3 d7 !clock
+RAM_RW = t1 + t3(d1  + d2 + d5 + d6 z) + t1 t5
+RAM_EN = t1 + t3 (d1 + d2 +d5 + z d6) + t5 d1 + t6 d2
+IR_LD = !clock t2
+SC_CLR = t4 !(d1 + d2 + d5 + d6 z) + t5(d5 + d6 z)  + t7
